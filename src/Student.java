@@ -1,16 +1,36 @@
+import java.util.Objects;
+
 public class Student {
-    private int numarMatricol;
-    private String nume;
-    private String prenume;
-    private String formatieDeStudiu;
-    public Student(int numarMatricol, String nume, String prenume, String formatieDeStudiu) {
-        this.numarMatricol = numarMatricol;
-        this.nume = nume;
+    int id;                         // old nr matricol
+    String prenume;
+    String nume;
+    String formatieDeStudiu;
+
+    public Student(int id, String prenume, String nume, String formatieDeStudiu) {
+        this.id = id;
         this.prenume = prenume;
+        this.nume = nume;
         this.formatieDeStudiu = formatieDeStudiu;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+
+        return Objects.equals(prenume, student.prenume) &&
+                Objects.equals(nume, student.nume) &&
+                Objects.equals(formatieDeStudiu, student.formatieDeStudiu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prenume, nume, formatieDeStudiu);
+    }
+
     @Override
     public String toString() {
-        return nume + " " + prenume + '\n' + "Numar matricol" + " : " + numarMatricol + '\n' + formatieDeStudiu;
+        return prenume + " " + nume + " (" + formatieDeStudiu + ")";
     }
 }
