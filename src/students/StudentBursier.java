@@ -10,13 +10,17 @@ public class StudentBursier extends Student {
         this.cuantumBursa = cuantumBursa;
     }
 
+    public double getCuantumBursa() {
+        return cuantumBursa;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         StudentBursier that = (StudentBursier) o;
-        return Double.compare(that.cuantumBursa, cuantumBursa) == 0;
+        return Double.compare(cuantumBursa, that.cuantumBursa) == 0;
     }
 
     @Override
