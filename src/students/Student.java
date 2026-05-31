@@ -3,11 +3,11 @@ package students;
 import java.util.Objects;
 
 public class Student {
-    int id;
-    String prenume;
-    String nume;
-    String formatieDeStudiu;
-    double medie;
+    protected int id;
+    protected String prenume;
+    protected String nume;
+    protected String formatieDeStudiu;
+    protected double medie;
 
     public Student(int id, String prenume, String nume, String formatieDeStudiu) {
         this.id = id;
