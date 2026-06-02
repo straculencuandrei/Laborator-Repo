@@ -1,0 +1,202 @@
+﻿Total pages: 12
+=== PAGE 8 ===
+Laborator Proiectare Software 
+Laborator 6 
+8 
+ 
+    assertNull / assertNotNull 
+  
+Rulare teste:  
+  a) selectati sagetutele verzi din dreptul clasei ΓÇô se vor executa toate metodele test. Selectand sagetuta din dreptul unei 
+metode de test va rula doar acea metoda 
+  b) Click dreapta clasa test ΓåÆ Run ΓÇÿYouClassNameΓÇÖ 
+ 
+Daca toate testele unitare se executa cu success rezultatul este: 
+ 
+ 
+ 
+Daca vreun test este fara success atunci: 
+ 
+ 
+ 
+6.8 Probleme 
+ 
+6.8.1 Deschideti proiectul ProiectareSofware si adaugati sursele din arhiva laborator6_starter_src.zip  
+
+=== PAGE 9 ===
+Laborator Proiectare Software 
+Laborator 6 
+9 
+ 
+Pentru clasele NewIntCalculator si DoubleCalculator creati clasele de test NewIntCalculatorTest si 
+DoubleCalculatorTest: 
+ 
+ 
+Realizati testele unitare pentru fiecare metoda existenta in 
+aceste clase, realizand teste unitare cu varii parametrii de 
+intrare. Implementati conceptul arrange ΓÇô act ΓÇô assert. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6.8.2 Pentru a testa robustetea codului in conditii neplanificate cum ar fi inmultirea si impartirea cu 0 realizati 
+teste unitare care sa verifice comportamentul in conditii exceptionale (negative path). Asftel determinati ce  
+exceptii sunt aruncate de codul de mai sus, si apoi cum ar trebui sa se comporte codul. 
+ 
+ 
+6.8.3  Deschideti proiectul Students, si 
+- creati o noua clasa AplicatieCuBursa in care vom defini un nou main: 
+public class AplicatieCuBursa { 
+ 
+    static void main(String[] args) { 
+        AplicatieCuBursa instanta = new AplicatieCuBursa(); 
+        List<StudentBursier> lista = instanta.genereaza(); 
+        for (StudentBursier student : lista) { 
+            System.out.println(student); 
+        } 
+        System.out.println("--------------------------------------------------"); 
+        List<StudentBursier> sortata = instanta.sorteaza(lista); 
+        for (StudentBursier student : sortata) { 
+            System.out.println(student); 
+        } 
+    } 
+ 
+    public List<StudentBursier> genereaza() { 
+        List<StudentBursier> lista = new ArrayList<>(); 
+        lista.add( new StudentBursier(1025,"Andrei","Popa","ISM141/2", 8.70, 725.50)); 
+        lista.add( new StudentBursier(1024,"Ioan","Mihalcea","ISM141/1", 9.80, 801.10)); 
+        lista.add( new StudentBursier(1029,"Bianca","Popescu","TI131/1,",  9.10, 780.80)); 
+        lista.add( new StudentBursier(1026,"Anamaria","Prodan","TI131/1", 8.90, 745.50)); 
+        lista.add( new StudentBursier(1029,"Bianca","Popescu","TI131/1,",  9.10, 100.00)); 
+        return lista; 
+    } 
+ 
+
+=== PAGE 10 ===
+Laborator Proiectare Software 
+Laborator 6 
+10 
+ 
+    public List<StudentBursier> sorteaza(List<StudentBursier> lst) { 
+        // aici implementati logica pentru sortare:  
+        // Comparati formatia de studiu, apoi numele, apoi prenumele, apoi nota, apoi 
+cuantumul bursei 
+        // apoi returnati lista. 
+        
+    } 
+} 
+ 
+ 
+ 
+Asigurati-va ca aveti getBursa in clasa StudentBursier: 
+public class StudentBursier extends Student { 
+    double cuantumBursa; 
+ 
+    public StudentBursier(int numarMatricol, String prenume, String nume, String 
+formatieDeStudiu, double nota, double bursa) { 
+        super(numarMatricol, prenume, nume, formatieDeStudiu); 
+        super.nota = nota; 
+        this.cuantumBursa = bursa; 
+    } 
+ 
+    public double getCuantumBursa() { 
+        return cuantumBursa; 
+    } 
+ 
+    @Override 
+    public String toString() { 
+        String s = super.toString(); 
+        s +=  String.format("    [ %6.2f ]", cuantumBursa); 
+        return s; 
+    } 
+ 
+    @Override 
+    public boolean equals(Object o) { 
+        if (o == null || getClass() != o.getClass()) return false; 
+        if (!super.equals(o)) return false; 
+        StudentBursier that = (StudentBursier) o; 
+        return Double.compare(cuantumBursa, that.cuantumBursa) == 0; 
+    } 
+ 
+    @Override 
+    public int hashCode() { 
+        return Objects.hash(super.hashCode(), cuantumBursa); 
+    } 
+} 
+ 
+Creati clasa de test unitar pentru AplicatieCuBursa, in care sa realizati test pentru metoda sorteaza() 
+ 
+  
+=== PAGE 11 ===
+Laborator Proiectare Software 
+Laborator 6 
+11 
+ 
+ 
+6.9 Referinte 
+ 
+ 
+IntelliJ IDEA - adaugare dependinte in build.gradle (Proiect Gradle, folosind forma Groovy) 
+https://www.jetbrains.com/help/idea/work-with-gradle-dependency-diagram.html#gradle_generate 
+ 
+Intellij IDEA ΓÇô adaugare dependinte in pom.xml (Proiect cu sistem build tip Maven) 
+https://www.jetbrains.com/help/idea/work-with-maven-dependencies.html 
+ 
+Configurare proiect cu JUnit 4 sau JUnit 5 
+https://www.digitalocean.com/community/tutorials/junit-setup-maven 
+ 
+Anotarile oferite de JUnit 5 
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations 
+ 
+Asserturile oferte de JUnit 5 
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions 
+ 
+IntellJ IDEA ΓÇô configurare repository GIT 
+https://www.jetbrains.com/help/idea/set-up-a-git-repository.html 
+  
+=== PAGE 12 ===
+Laborator Proiectare Software 
+Laborator 6 
+12 
+ 
+Hints. 
+ 
+ 
+6.8.1, 6.8.2: 
+In clasele NewIntCalculatorTest, DoubleCalculatorTest realizati testele unitare urmatoare (nu uitati sa adaugati 
+anotarile aferente): 
+public void testAddPositive() {...} 
+public void testAddNegatives() {...} 
+public void testSubtractPositives() {...} 
+public void testSubtractNegatives() {...} 
+public void testMultiplyPositives() {...} 
+public void testMultiplyNegatives() {...} 
+public void testMultiplyBy0() {...} 
+public void testDividePositives() {...} 
+public void testDivideNegatives() {...} 
+public void testDivideBy0() {...} 
+ 
+ 
+ 
+6.8.3 
+class AplicatieCuBursaTest { 
+    AplicatieCuBursa  appCuBursa = new AplicatieCuBursa(); 
+ 
+    @Test 
+    void sortTest1() { 
+        //arrange - creati o lista de StudentBursieri - o puteti lua pe cea de mai sus 
+         
+        //act   - apelati  appCuBursa.sort(lista) 
+         
+        //assert  - parcurgeti noua lista, si verificati 2 cate 2 studenti daca satisfac 
+toate conditiile de comparare 
+    } 
+} 
+ 
