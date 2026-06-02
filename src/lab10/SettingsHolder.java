@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class SettingsHolder {
     private static SettingsHolder instance = null;
-    private Map<String, String> settings;
+    private final Map<String, String> settings;
 
     private SettingsHolder() {
         settings = readSettings();

@@ -3,10 +3,10 @@ package lab4;
 import java.util.Objects;
 
 public class Student {
-    private String numarMatricol;
-    private String prenume;
-    private String nume;
-    private String grupa;
+    private final String numarMatricol;
+    private final String prenume;
+    private final String nume;
+    private final String grupa;
     private float nota;
 
     public Student(String numarMatricol, String prenume, String nume, String grupa) {

@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Tanar {
-    private String name;
-    private int age;
-    private String address;
+    private final String name;
+    private final int age;
+    private final String address;
 
     public Tanar(String name, int age, String address) {
         this.name = name;

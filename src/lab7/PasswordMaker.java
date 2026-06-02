@@ -2,7 +2,7 @@ package lab7;
 
 public class PasswordMaker {
 
-    private static PasswordMaker instance;
+    private static final PasswordMaker instance;
     private static int callingCounts = 0;
 
     static {

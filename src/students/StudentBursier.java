@@ -1,13 +1,18 @@
 package students;
 
+
 import java.util.Objects;
 
 public class StudentBursier extends Student {
-    private double cuantumBursa;
+    private final double cuantumBursa;
 
     public StudentBursier(int id, String prenume, String nume, String formatieDeStudiu, double medie, double cuantumBursa) {
         super(id, prenume, nume, formatieDeStudiu, medie);
         this.cuantumBursa = cuantumBursa;
+    }
+
+    public double getCuantumBursa() {
+        return cuantumBursa;
     }
 
     @Override
@@ -16,7 +21,7 @@ public class StudentBursier extends Student {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         StudentBursier that = (StudentBursier) o;
-        return Double.compare(that.cuantumBursa, cuantumBursa) == 0;
+        return Double.compare(cuantumBursa, that.cuantumBursa) == 0;
     }
 
     @Override

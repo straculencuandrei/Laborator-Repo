@@ -1,0 +1,9 @@
+package students;
+
+import lab10.Student;
+
+import java.util.List;
+
+public interface ITimeExecution {
+    long executionTime(List<Student> studenti);
+}

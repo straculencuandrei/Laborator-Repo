@@ -6,7 +6,7 @@ import java.util.Set;
 public class MainClass {
 
     static Student schimbaFormatia(Student st, String nouaFormatieDeStudiu) {
-        return new Student(st.getNume(), nouaFormatieDeStudiu);
+        return new Student(st.nume(), nouaFormatieDeStudiu);
     }
 
     static Set<Student> imparteInDouaFormatii(Set<Student> studenti, String formatia1, String formatia2) {

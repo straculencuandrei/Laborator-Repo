@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class Student {
     int id;
-    String prenume;
-    String nume;
-    String formatieDeStudiu;
-    double medie;
+    public String prenume;
+    public String nume;
+    public String formatieDeStudiu;
+    public double medie;
 
     public Student(int id, String prenume, String nume, String formatieDeStudiu) {
         this.id = id;

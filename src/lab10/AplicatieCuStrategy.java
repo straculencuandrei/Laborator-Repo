@@ -3,45 +3,21 @@ package lab10;
 import java.util.Arrays;
 import java.util.List;
 
-class StudentiInConsola implements IStudentiExport {
-    public void doExport(List<Student> studenti) {
-        for (Student s : studenti) {
-            System.out.println(s);
-        }
-    }
-}
-
-class StudentiInFisierText implements IStudentiExport {
-    private String fileName;
-    public StudentiInFisierText(String fileName) { this.fileName = fileName; }
-    public void doExport(List<Student> studenti) {
-        System.out.println("Exporting to text file: " + fileName);
-    }
-}
-
-class StudentiInFisierXlsx implements IStudentiExport {
-    private String fileName;
-    public StudentiInFisierXlsx(String fileName) { this.fileName = fileName; }
-    public void doExport(List<Student> studenti) {
-        System.out.println("Exporting to excel file: " + fileName);
-    }
-}
-
 class StudentiDinFisierText implements IStudentiImport {
-    private String fileName;
+    private final String fileName;
     public StudentiDinFisierText(String fileName) { this.fileName = fileName; }
     public List<Student> doImport() {
         System.out.println("Importing from text file: " + fileName);
-        return Arrays.asList(new Student(1024, "Ioan", "Mihalcea", "ISM141/1", 8.90));
+        return List.of(new Student(1024, "Ioan", "Mihalcea", "ISM141/1", 8.90));
     }
 }
 
 class StudentiDinFisierXlsx implements IStudentiImport {
-    private String fileName;
+    private final String fileName;
     public StudentiDinFisierXlsx(String fileName) { this.fileName = fileName; }
     public List<Student> doImport() {
         System.out.println("Importing from excel file: " + fileName);
-        return Arrays.asList(new Student(1025, "Andrei", "Popa", "ISMI41/2", 8.70));
+        return List.of(new Student(1025, "Andrei", "Popa", "ISMI41/2", 8.70));
     }
 }
 
@@ -71,15 +47,5 @@ public class AplicatieCuStrategy {
         String excelFileOut = "studentiStrategyExcel.xlsx";
         IStudentiExport strategyFisierExcel = new StudentiInFisierXlsx(excelFileOut);
         exporter.startExport(strategyFisierExcel, studenti);
-
-        Importer importer = new Importer();
-
-        String textFileIn = "studentiStrategyText.txt";
-        IStudentiImport strategyDinText = new StudentiDinFisierText(textFileIn);
-        List<Student> studentiDinText = importer.startImport(strategyDinText);
-
-        String excelFileIn = "studentiStrategyExcel.xlsx";
-        IStudentiImport strategyDinExcel = new StudentiDinFisierXlsx(excelFileIn);
-        List<Student> studentiDinExcel = importer.startImport(strategyDinExcel);
     }
 }
